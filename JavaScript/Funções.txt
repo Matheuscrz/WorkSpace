@@ -1,0 +1,10 @@
+array.push() -> Adiciona no ultimo iten do arraylist.
+array.pop() -> Remover ultimo iten do arraylist.
+array.shift() -> Remover 1º item do array.
+array.unshift() -> Adiciona elementos no 1º item do array.
+varialvel global [nome da variavel = valor];
+map -> O  método map() é invocado a partir de um array e recebe como parâmetro uma função, que é invocada para cada item e retorna o valor do item equivalente no array resultante. 
+filter -> Em Javascript, fazemos essa filtragem com uso de uma função pré-definida filter(f) onde f é a função definida que representa o critério de seleção de cada elemento.
+reduce -> Em Javascript, fazemos essa redução com uso de uma função pré-definida reduce(f,i) onde f é a função definida que representa a operação a ser efetuada sobre todos os elementos e i é o valor inicial a ser considerado na operação de redução. Por exemplo, no caso de um somatório, esse valor i é usualmente 0 (zero).
+sort -> O método sort() permite classificar (ordenar) elementos de um array local. Além de retornar o array ordenado, o método sort() altera as posições dos elementos no array original.
+composição -> Atente para o operador .... Ele se chama SPREAD e serve para permitir expandir uma expressão em um local que receba múltiplos argumentos ou elementos. Em outras palavras, ele evita a necessidade de sabermos de antemão a quantidade exata de argumentos que serão passados à função.

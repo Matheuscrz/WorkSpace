@@ -1,0 +1,25 @@
+body,
+html {
+    height: 100%;
+    margin: 0 auto;
+}
+
+.bg {
+    background-image: url(https://images.alphacoders.com/880/thumbbig-880122.webp);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+h1,
+h2,
+h3,
+ol {
+    color: black;
+}
+
+#output {
+    color: black;
+}

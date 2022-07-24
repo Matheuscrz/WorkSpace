@@ -1,0 +1,16 @@
+▶ C
+    ▶ Cadeias de caracteres (string.h)
+    ▶ Entrada e saída (stdio.h)
+    ▶ Funções e procedimentos genéricos (stdlib.h)
+▶ AVR
+    ▶ Atraso de tempo (util/delay.h)
+    ▶ Definições de E/S (avr/io.h)
+    ▶ Gerenciamento de EEPROM (avr/eeprom.h)
+
+Fonte: https://www.nongnu.org/avr-libc/user-manual/index.html
+▶ Linguagem de montagem em C (inline assembly)
+    ▶ Diretivas asm e volatile
+    ▶ Operadores de entrada e de saída
+    ▶ Registradores modificados (clobbered)
+
+Fonte: https://www.nongnu.org/avr-libc/user-manual/inline_asm.html
