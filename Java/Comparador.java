@@ -18,7 +18,8 @@ public class Comparador {
          if (v3>v1 && v3>v2){
             System.out.println("O Numero maior é:"+v3);
         }
-} 
+        scan.close();
+    } 
 }
     
 

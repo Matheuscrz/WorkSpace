@@ -16,5 +16,6 @@ public class Par{
         else if (numero %2 != 0 && numero < 0){
             System.out.println("Este numero é negativo e impar.");
         }
+        ler.close();
     }
 }

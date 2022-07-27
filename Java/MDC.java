@@ -14,5 +14,6 @@ public class MDC {
             int resultado = num1;
         }
         System.out.printf("O MDC é: %d.",num1);
+        ler.close();
     }
 }

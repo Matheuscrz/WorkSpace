@@ -43,5 +43,6 @@ public class Candidatos {
         System.out.printf("Idade média dos candidatos que já têm experiência: %.0f . %n",media);
         System.out.printf("Porcentagem de candidatos com mais de 40 anos: %.0f . %n",porcentagem);
         System.out.printf("Mulheres com experiência e idade inferior a 21: %.0f . %n",mvinteum);
+        ler.close();
     }
 }

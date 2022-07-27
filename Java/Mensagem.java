@@ -13,6 +13,7 @@ public class Mensagem {
             case 'N' : System.out.println("Boa Noite!!");
             break;
             default: System.out.println("Por favor Informe um Valor Válido!");
-        }   
+            }
+            scan.close();
         }
     }

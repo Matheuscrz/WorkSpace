@@ -18,5 +18,6 @@ public class Diferenca {
         else {
             System.out.println("Os valores são iguais!");
         }
+        ler.close();
     }
 }

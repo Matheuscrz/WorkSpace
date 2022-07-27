@@ -18,5 +18,6 @@ public class Main {
             valor1 = scan.nextInt();
             valor2 = scan.nextInt();
         }
+        scan.close();
     }
 }

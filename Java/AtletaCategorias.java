@@ -17,6 +17,7 @@ public class AtletaCategorias {
         if(id>=30){
             System.out.println("Categoria Sênior");
         }
+        scan.close();
     }
     
 }

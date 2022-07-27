@@ -49,5 +49,6 @@ public class Media{
         System.out.printf("O percentual de aprovação é de:%.0f. %n",percentualapro);
         System.out.printf("O número de alunos reprovados por média é %d, um percentual de:%.0f. %n",reprovadomedia,percentualrmed);
         System.out.printf("O número de alunos reprovados por falta é %d, um percentual de:%.0f. %n",reprovadofalta,percentualrfal);
+        ler.close();
     }
 }

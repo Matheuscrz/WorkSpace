@@ -134,5 +134,6 @@ public class Iluminacao {
             }
             i++;
         }
+        scan.close();
     }
 }

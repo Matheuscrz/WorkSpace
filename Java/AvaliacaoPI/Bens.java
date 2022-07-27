@@ -37,6 +37,4 @@ public class Bens {
     public void setValor(double valor) {
         this.valor = valor;
     }
-
-
 }

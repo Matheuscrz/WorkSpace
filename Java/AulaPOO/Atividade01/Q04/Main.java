@@ -35,5 +35,6 @@ public class Main {
                 }
             }
         }while(input != "EOF");
+        scan.close();
     }
 }

@@ -15,5 +15,6 @@ public class Iguais {
         else {
             System.out.printf("O "+valor2+"é o número maior!");
         }
+        ler.close();
     }
 }

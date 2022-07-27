@@ -22,5 +22,6 @@ public class Dia {
             break;
             default: System.out.println("Por favor Insira um valor!");
         }
+        scan.close();
     }  
 }

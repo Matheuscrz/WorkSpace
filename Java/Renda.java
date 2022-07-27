@@ -25,5 +25,6 @@ public class Renda {
             System.out.printf("O salario liquido do funcionário será de %.2f R$. %n",salarioliquido);
             i++;
         }
+        scan.close();
 	}
 }
