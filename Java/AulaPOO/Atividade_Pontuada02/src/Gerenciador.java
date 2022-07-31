@@ -54,5 +54,6 @@ public class Gerenciador {
             }
         }
         System.out.println(jogo.Vencedor(jogadas));
+        keyboard.close();
     }
 }
