@@ -30,5 +30,6 @@ public class Controle {
         }
         saida = balcao.tempoMedioS(balcao.getTempoExecutado(), balcao.getQtVeiculos());
         System.out.printf("Tempo médio de atendimento em segundos por veiculo: %.2f\n", saida);
+        keyboard.close();
     }    
 }
