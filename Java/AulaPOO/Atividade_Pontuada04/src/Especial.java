@@ -1,12 +1,17 @@
-package AulaPOO.Atividade04.src;
+package AulaPOO.Atividade_Pontuada04.src;
 
 public class Especial extends Conta{
-    public Especial(String nome, String cPF, int conta, double saldo, int identificador) {
-        super(nome, cPF, conta, saldo, identificador);
-        //TODO Auto-generated constructor stub
-    }
-
     private double limite;
+
+    /**
+     * @param identificador
+     * @param saldo
+     * @param limite
+     */
+    public Especial(String identificador, double saldo, double limite) {
+        super(identificador, saldo);
+        this.limite = limite;
+    }
 
     /**
      * @return the limite
