@@ -6,10 +6,17 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        
+        Scanner keyboard = new Scanner(System.in);
+        String[] input = keyboard.next().split(";");
+        for(int i = 0 ; i < input.length; i++){
+            if(input[1].equals("CA")){
+                Agencia agencia = new Agencia(input[2]);
+            }
+        }
     }
     // void criarAgencia(String nome){
     //     Agencia agencia = new Agencia(nome);
