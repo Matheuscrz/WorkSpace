@@ -126,4 +126,4 @@ var array = (n) => {
     if (n == 0) return [];
     return array(n - 1).concat([n]);
 };
-array(10)
+console.log(array(10))

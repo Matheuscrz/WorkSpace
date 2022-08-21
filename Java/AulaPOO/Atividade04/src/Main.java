@@ -1,4 +1,4 @@
-package AulaPOO.Atividade_Pontuada04.src;
+package AulaPOO.Atividade04.src;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,18 +11,21 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
-        String[] input = keyboard.next().split(";");
-        for(int i = 0 ; i < input.length; i++){
+        String[] input;
+        Agencia agencia = new Agencia();
+        do{
+            input = keyboard.next().split(";");
             if(input[1].equals("CA")){
-                Agencia agencia = new Agencia(input[2]);
+                agencia.setNome(input[2]);
+                escrita(agencia);
             }
-        }
+            else agencia.criarConta(input[1], input[2], input[3]);
+            
+        }while(!input[1].equals("RO"));
+        keyboard.close();
     }
-    // void criarAgencia(String nome){
-    //     Agencia agencia = new Agencia(nome);
-    // }
     private static void escrita(Agencia agencia){
-        File dir = new File("/home/matheuslima/Documentos/WorkSpace/Java/AulaPOO/Atividade_Pontuada04/src");
+        File dir = new File("/home/matheuslima/Documentos/WorkSpace/Java/AulaPOO/Atividade04/src");
         File arquivo = new File(dir, "Agencia.txt");
 
         try{
@@ -40,7 +43,7 @@ public class Main {
         }
     }
     private static void leitura(){
-        File dir = new File("/home/matheuslima/Documentos/WorkSpace/Java/AulaPOO/Atividade_Pontuada04/src");
+        File dir = new File("/home/matheuslima/Documentos/WorkSpace/Java/AulaPOO/Atividade04/src");
         File arquivo = new File(dir, "Agencia.txt");
 
         try {
