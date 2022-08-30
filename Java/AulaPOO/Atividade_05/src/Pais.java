@@ -1,27 +1,39 @@
-package Java.Atividade_05.src;
-
-import java.util.ArrayList;
-import java.util.List;
+package AulaPOO.Atividade_05.src;
 
 public class Pais {
     private String nome;
-    private List<String> medalhas = new ArrayList<String>();
-     
-
-    public Pais(String nome, List<String> medalhas) {
+    private String medalha;
+    /**
+     * @param nome
+     * @param medalha
+     */
+    public Pais(String nome, String medalha) {
         this.nome = nome;
-        this.medalhas = medalhas;
+        this.medalha = medalha;
     }
+    /**
+     * @return the nome
+     */
     public String getNome() {
         return nome;
     }
+    /**
+     * @param nome the nome to set
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public List<String> getMedalhas() {
-        return medalhas;
+    /**
+     * @return the medalha
+     */
+    public String getMedalha() {
+        return medalha;
     }
-    public void setMedalhas(List<String> medalhas) {
-        this.medalhas = medalhas;
+    /**
+     * @param medalha the medalha to set
+     */
+    public void setMedalha(String medalha) {
+        this.medalha = medalha;
     }
+     
 }
