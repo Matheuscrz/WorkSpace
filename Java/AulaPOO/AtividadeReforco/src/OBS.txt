@@ -1,0 +1,1 @@
+As duvidas estão em forma de comentários em 2 arquivos, NotasSingleton e NotasIterator. 
