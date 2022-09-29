@@ -1,46 +1,34 @@
 package AulaPOO.AtividadeReforco.src;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NotasSingleton implements NotasAlunosInterface{
 
-    private static Double [] notas;
-    private static Singleton uniqueInstance;
+    private static List<Double> notas = new ArrayList<>();
+    private static NotasSingleton uniqueInstance;
 
     /**
      * 
      */
-    private NotasSingleton(Double [] notas) {
-        NotasSingleton.notas = notas;
+    private NotasSingleton(List<Double> nota) {
+        NotasSingleton.notas = nota;
     }
 
-    /* DUVIDA 
-     * Como posso gerar um construtor de um array e através do método insert para os
-     * atributos do array para o construtor no método getInstance?
+    /**
+     * 
      */
-
-
+    
     // public synchronized static NotasSingleton getInstance(){
-    //     if(uniqueInstance == null)
-    //         uniqueInstance = new NotasSingleton(notas);
-    //     else 
-    //         return uniqueInstance;
+    //     if(uniqueInstance == null){
+    //         uniqueInstance = new NotasSingleton();
+    //     }
+    //     return uniqueInstance;
     // }
-
 
     @Override
     public void insert(Double[] notas) {
-        // TODO Auto-generated method stub
-        
+        for(int i = 0; i<notas.length; i++){
+        }
     }
-    // @Override
-    // public String toString(){
-    //     String aux;
-    //     for(int i = 0; i<notas.length;i++){
-    //         notas[i] = - notas[i];
-    //     }
-    //     Array.sort();
-    //     for(int i = 0; i<notas.length;i++){
-    //         notas[i] = - notas[i];
-    //     }
-    //     return aux;
-    // }
 }
