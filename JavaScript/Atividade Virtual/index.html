@@ -4,56 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/Css/style.css">
     <title>Tarefa Virtual - Matheus Lima</title>
 </head>
 <body>
-    <div>
+    <div id="titulo">
         <h1>Tarefa Virtual</h1>
         <br>
     </div>
-    <div>
-        <label>Selecione a opção para o envio de dados</label>
-        <br>
-        <input type="radio" name="opcoes" value="unibox" id="Opcao1" checked> Caixa de texto única.
-        <input type="radio" name="opcoes" value="multbox" id="Opcao2">Múltiplas caixas de texto.
-        <input type="radio" name="opcoes" value="file" id="Opcao3">Arquivo.
-    </div>
-    <form>
-        <fieldset id="selecao1">
-            <div id="input1">
-                <label>Informe os dados separados por ",".</label>
-                <div>
-                    <input type="text" name="Dados" id="dados">
-                </div>
-                <button id="enviar1">Enviar</button>
-            </div>
-        </fieldset>
-        <fieldset id="selecao2">
-            <div id="input2">
-                <label>Preencha todos os campos abaixo</label>
-                <div>
-                    <label>Ano/Período</label>
-                    <input type="text">
-                    <br>
-                    <label>Código da Disciplina</label>
-                    <input type="text">
-                    <br>
-                    <label>Carga Horaria</label>
-                    <input type="text">
-                    <br>
-                    <label>Frequência</label>
-                    <input type="text">
-                    <br>
-                    <label>Nota</label>
-                    <input type="text">
-                </div>
-                <button id="enviar2">Enviar</button>
-            </div>
-        </fieldset>
-        <fieldset>
-            <input type="file" id="input3">
-        </fieldset>
-        <button id="processar">Processar Dados</button>
+        <div id="input">
+            <fieldset>
+                    <label>Preencha todos os campos abaixo</label>
+                    <div>
+                        <label>Ano/Período</label>
+                        <input id="ano" type="text">
+                        <br>
+                        <label>Código da Disciplina</label>
+                        <input id="codigo" type="text">
+                        <br>
+                        <label>Carga Horaria</label>
+                        <input id="ch" type="text">
+                        <br>
+                        <label>Frequência</label>
+                        <input id="freq" type="text">
+                        <br>
+                        <label>Nota</label>
+                        <input id="nota" type="text">
+                    </div>
+                    <button onclick="Enviar()">Enviar</button>
+            </fieldset>
+        </div>
+        <button onclick="Processar()">Processar Dados</button>
+        <p><span id="output"></span></p>
     </form>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
