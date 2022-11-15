@@ -143,7 +143,25 @@ const deslocaDir = (bits) => (num) => {
 };
 //----------------------------------- Fim ---------------------------------------
 const indef = (x) => typeof x == "undefined";
-const soma = ([x, ...xs]) => (indef(x) ? 0 : x + soma(xs));
+const elem = (e, [x, ...xs]) => {
+  if (indef(x)) {
+    return false;
+  } else return e === x || elem(e, [...xs]);
+};
+const inverta = ([x, ...xs]) => (indef(x) ? [] : [...inverta(xs), x]);
+const duplica = ([x, ...xs]) => (indef(x) ? [] : [x, x, ...duplica(xs)]);
+const palin = (str) => {
+  if (str.length < 2) return true;
+  else {
+    let prim = str.slice(0, 1);
+    let ult = str.slice(-1);
+    let meio = str.slice(1, -1);
+    return prim === ult && palin(meio);
+  }
+};
+//---------------------------------- Lista 5--------------------------------------
+//Questão 1
+//Questão 2
 const ultimo = ([x, ...xs]) => {
   if (indef(x)) return "Lista vazia";
   else return ultimoAux([x, ...xs]);
@@ -152,6 +170,23 @@ const ultimoAux = ([x, ...xs]) => {
   if (xs.length == 0) return x;
   else return ultimoAux(xs);
 };
+//Questão 3
+const numero = ([x, ...xs]) => {
+  if (indef(x)) return 0;
+  else return 1 + numero(xs);
+};
+//Questão 4
+// const presente = (l) => (x) => l.indexOf(x) != -1;
+// const compara = (l1, l2) => l1.filter(presente(l2));
+// const quantosIguais = compara(lista1, lista2).length;
+//---------------------------------- Lista 7--------------------------------------
+//Questão 1
+const busca = (e, [x, ...xs]) => {
+  if (indef(x)) return -1;
+  else if (e === x) return x;
+  else return busca(e, [...xs]);
+};
+//Questão 2
 const maior = ([x, ...xs]) => {
   if (indef(x)) return "Lista vazia";
   else return maiorAux([x, ...xs]);
@@ -163,20 +198,22 @@ const maiorAux = ([x, ...xs]) => {
     return x > maior ? x : maior;
   }
 };
-const inverta = ([x, ...xs]) => (indef(x) ? [] : [...inverta(xs), x]);
-const duplica = ([x, ...xs]) => (indef(x) ? [] : [x, x, ...duplica(xs)]);
-const verif = (e, [x, ...xs]) => {
-  if (indef(x)) return false;
-  else return e === x || verif(e, [...xs]);
+//Questão 3
+const soma = ([x, ...xs]) => (indef(x) ? 0 : x + soma(xs));
+//Questão 4
+//Questão 5
+//Questão 6
+//Questão 7
+// const qSort = ([x, ...xs]) => {
+//   if (indef(x)) {return []}
+//   else {
+//       return ()
+//   }
+// }
+//Questão 8
+const buscaBin = (e, [x, ...xs]) => {
+  if (indef(x)) return -1;
+  else if (e === x) return x;
+  else return buscaBin(e, [...xs]);
 };
-const palin = (str) => {
-  if (str.length < 2) return true;
-  else {
-    let prim = str.slice(0, 1);
-    let ult = str.slice(-1);
-    let meio = str.slice(1, -1);
-    return prim === ult && palin(meio);
-  }
-};
-//---------------------------------- Lista --------------------------------------
 console.log();
