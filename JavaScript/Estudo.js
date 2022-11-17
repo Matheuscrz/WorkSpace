@@ -180,40 +180,200 @@ const numero = ([x, ...xs]) => {
 // const compara = (l1, l2) => l1.filter(presente(l2));
 // const quantosIguais = compara(lista1, lista2).length;
 //---------------------------------- Lista 7--------------------------------------
-//Questão 1
-const busca = (e, [x, ...xs]) => {
+/**
+ *
+ * Importa funções auxiliares
+ */
+const { indef } = require("./utils.js");
+
+/**
+ * Criar uma função que busca o índice de um determinado item
+ * em uma lista ORDENADA. Se o item estiver presente, ele deve
+ * retornar o índice, caso contrário, deve retornar -1.
+ * #recursividade
+ * #lista
+ */
+const busca = ([x, ...xs], elem, acc = 0) => {
   if (indef(x)) return -1;
-  else if (e === x) return x;
-  else return busca(e, [...xs]);
+  else if (elem === x) return acc;
+  else return busca(xs, elem, acc + 1);
 };
-//Questão 2
-const maior = ([x, ...xs]) => {
-  if (indef(x)) return "Lista vazia";
-  else return maiorAux([x, ...xs]);
+
+/**
+ * Criar uma função que encontre o maior valor
+ * numa lista de inteiros usando a recursividade.
+ * Considere que a lista possui pelo menos um elemento.
+ */
+const maior = ([x, y, ...xs]) => {
+  if (indef(y)) return x;
+  else return x > y ? maior([x, ...xs]) : maior([y, ...xs]);
 };
-const maiorAux = ([x, ...xs]) => {
-  if (xs.length == 0) return x;
+
+/**
+ * Criar uma função que pega uma lista e devolve a soma de
+ * todos os itens. Atenção: o item de uma lista pode ser outra lista.
+ */
+const somaAninhado = ([x, ...xs]) => {
+  if (indef(x)) return 0;
+  else if (!(x instanceof Array)) return x + somaAninhado(xs);
+  else return somaAninhado(x) + somaAninhado(xs);
+};
+
+/**
+ * Função para retornar o número de vogais numa string.
+ * Considere que todas as letras estão minúsculas.
+ */
+const vogais = (str) => {
+  const helper = ([x, ...xs]) => {
+    if (indef(x)) return 0;
+    //testa se alguma das letras a,e,i,o,u existe em (corresponde a) x
+    else if (/[aeiou]/.test(x)) return 1 + helper(xs);
+    else return helper(xs);
+  };
+  if (str === "") return 0;
+  else return helper(str.split(""));
+};
+
+/**
+ * Criar uma função que transforma frases terminadas com múltiplos pontos
+ * de interrogação ? ou pontos de exclamação ! numa frase que termina apenas
+ * com um, sem alterar a pontuação no meio das frases.
+ * Ex: semgritaria("O que é isso?????") ---> "O que é isso?"
+ */
+const eliminaIntExc = (str) => {
+  const helper = ([x, y, ...xs]) => {
+    if (x !== y) return [x, y, ...xs];
+    else if (/[?!]/.test(x)) return helper([y, ...xs]);
+    else return [x, y, ...xs];
+  };
+  if (str.length <= 2) return str;
+  const strinvertida = inverte(str);
+  if (!/[!?]/.test(strinvertida[1])) return str;
   else {
-    let maior = maiorAux([...xs]);
-    return x > maior ? x : maior;
+    const strlista = strinvertida.split("");
+    return inverte(helper(strlista).join(""));
   }
 };
-//Questão 3
-const soma = ([x, ...xs]) => (indef(x) ? 0 : x + soma(xs));
-//Questão 4
-//Questão 5
 //Questão 6
-//Questão 7
-// const qSort = ([x, ...xs]) => {
-//   if (indef(x)) {return []}
-//   else {
-//       return ()
-//   }
-// }
-//Questão 8
-const buscaBin = (e, [x, ...xs]) => {
-  if (indef(x)) return -1;
-  else if (e === x) return x;
-  else return buscaBin(e, [...xs]);
+const acumulado = ([x, ...xs], acc = 0) => {
+  if (indef(x)) return [];
+  else {
+    const novox = x + acc;
+    return [novox, ...acumulado([...xs], novox)];
+  }
 };
+//QUICK SORT
+const qSort = ([x, ...xs]) => {
+  if (indef(x)) return [];
+  else {
+    const menores = xs.filter((a) => a <= x);
+    const maiores = xs.filter((a) => a > x);
+    return [...qSort(menores), x, ...qSort(maiores)];
+  }
+};
+
+//Versão convencional
+const elimina =
+  (elem) =>
+  ([x, ...xs]) => {
+    if (indef(x)) return [];
+    else if (x === elem) return elimina(elem)([...xs]);
+    else return [x, ...elimina(elem)([...xs])];
+  };
+//Versão convencional
+const sublista = (lista) => (str) => {
+  const sublistaAux = ([x, ...xs], [y, ...ys]) => {
+    if (indef(y)) return true;
+    else if (indef(x)) return false;
+    else if (y === x) return sublistaAux(xs, ys);
+    else return sublistaAux(xs, [y, ...ys]);
+  };
+  const strsplit = str.split("");
+  return sublistaAux(lista, strsplit);
+};
+const digitosoma = (valor) => {
+  const converteEmLista = (v) => {
+    if (v < 10) return [v];
+    else return converteEmLista(parseInt(v / 10)).concat([v % 10]);
+  };
+  const parcial = sum(converteEmLista(valor));
+  if (parcial < 10) return parcial;
+  else return digitosoma(parcial);
+};
+const criaLances = (num) => {
+  const face1 = 1 + Math.floor(Math.random() * 6);
+  const face2 = 1 + Math.floor(Math.random() * 6);
+  if (num === 1) return [[face1, face2]];
+  else return [[face1, face2]].concat(criaLances(num - 1));
+};
+const map__ =
+  ([x, ...xs]) =>
+  (f) => {
+    if (indef(x)) return [];
+    else return [f(x), ...map__(xs)(f)];
+  };
+const filter__ =
+  ([x, ...xs]) =>
+  (f) => {
+    if (indef(x)) return [];
+    else if (f(x)) return [x, ...filter__(xs)(f)];
+    else return [...filter__(xs)(f)];
+  };
+const reduce__ =
+  ([x, ...xs]) =>
+  (f, acc) => {
+    if (indef(x)) return acc;
+    else return reduce__(xs)(f, f(x, acc));
+  };
+//---------------------------------- Simulado--------------------------------------
+/**
+ * QUESTÃO 1
+ */
+const truncaSeq = (lista, n = 0) => {
+  if (n === 0) return lista;
+  else if (n >= lista.length) return [];
+  else {
+    const [x, ...xs] = lista;
+    return [x, ...truncaSeq(xs, n)];
+  }
+};
+
+/**
+ * QUESTÃO 2
+ */
+const validaSeq = (lista) => {
+  if (lista.length < 3) return true;
+  else {
+    const [x, y, z, ...xs] = lista;
+    if (x + y === z) return validaSeq([y, z, ...xs]);
+    else return false;
+  }
+};
+
+/**
+ * QUESTÃO 3
+ */
+const mantenhaFiltro = (f) => (lista) => {
+  if (lista.length === 0) return [];
+  else {
+    const [x, ...xs] = lista;
+    if (f(x)) return [x, ...mantenhaFiltro(f)(xs)];
+    else return [];
+  }
+};
+
+/**
+* QUESTÃO 4
+
+*/
+const bin2dec = (str) => {
+  const lista = str.split("");
+  const len = str.length;
+  const helper = ([x, ...xs], tam) => {
+    if (tam === 0) return 0;
+    else return x * 2 ** (tam - 1) + helper(xs, tam - 1);
+  };
+  return helper(lista, len);
+};
+
 console.log();
